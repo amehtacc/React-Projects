@@ -1,20 +1,37 @@
 import React, { useState } from "react";
 
 function Counter() {
-  const [count, setCount] = useState(0); 
+  const [count, setCount] = useState(0);
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   function increment() {
-    setCount(prevCount => prevCount + 1);
+    setCount((prevCount) => {
+      const newCount = prevCount + 1
+      handleMessage(newCount)
+      return newCount
+    });
     setError("");
   }
 
   function decrement() {
     if (count > 0) {
-      setCount(prevCount => prevCount - 1);
+      setCount((prevCount) => {
+        const newCount = prevCount - 1
+        handleMessage(newCount)
+        return newCount
+      });
     } else {
       setError(`Number can't be Negative`);
-      setTimeout(() => setError(``), 2000)
+      setTimeout(() => setError(``), 2000);
+    }
+  }
+
+  function handleMessage(updatedCount) {
+    if (updatedCount == 0) {
+      setMessage("Start Counting!");
+    } else {
+      setMessage(updatedCount % 2 == 0 ? "Even" : "Odd")      
     }
   }
 
@@ -35,12 +52,15 @@ function Counter() {
           -
         </button>
       </div>
-      {error && <p className="text-red-500">{error}</p>}
+
+      {error ? <p className="text-red-500">{error}</p> : <p className="text-white">{message}</p>}
+      
       <button
         className="w-28 h-10 text-lg font-semibold bg-yellow-500 rounded-3xl border-2 cursor-pointer hover:bg-yellow-600 transition duration-300"
         onClick={() => {
           setCount(0);
           setError("");
+          setMessage("Start Counting!");
         }}
       >
         Reset
