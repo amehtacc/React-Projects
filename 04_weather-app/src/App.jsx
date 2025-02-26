@@ -15,7 +15,7 @@ function App() {
    */
   useEffect(() => {
     // API key for accessing weather data from WeatherAPI
-    const API_KEY = "6c182f4256544ca7b2484446241308";
+    const API_KEY = "Paste your API key here";
 
     /**
      * Asynchronous function to fetch weather data based on the city name.
