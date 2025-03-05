@@ -28,30 +28,30 @@ import NoPage from "./pages/NoPage.jsx";   // 404 Page Component (for unmatched 
 // This method uses an array of route objects to define navigation. This is commented out 
 // because we are now using `createRoutesFromElements` instead.
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />, // App component acts as a layout that wraps child pages
-//     children: [
-//       {
-//         path: "",        // Default route → Loads Home component
-//         element: <Home />,
-//       },
-//       {
-//         path: "about",   // Navigating to "/about" → Loads About component
-//         element: <About />
-//       },
-//       {
-//         path: "contact", // Navigating to "/contact" → Loads Contact component
-//         element: <Contact />
-//       },
-//       {
-//         path: "*",       // Catch-all route for undefined pages → Loads NoPage component
-//         element: <NoPage />
-//       },
-//     ]
-//   }
-// ])
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />, // App component acts as a layout that wraps child pages
+    children: [
+      {
+        path: "",        // Default route → Loads Home component
+        element: <Home />,
+      },
+      {
+        path: "about",   // Navigating to "/about" → Loads About component
+        element: <About />
+      },
+      {
+        path: "contact", // Navigating to "/contact" → Loads Contact component
+        element: <Contact />
+      },
+      {
+        path: "*",       // Catch-all route for undefined pages → Loads NoPage component
+        element: <NoPage />
+      },
+    ]
+  }
+])
 
 // ✅ [NEW APPROACH - Using JSX Routes]
 // This method is cleaner and more readable, defining routes using JSX elements.
