@@ -1,5 +1,5 @@
 // Import React library
-import React from 'react'
+import React from 'react';
 
 // Import the custom hook to access the global expense state
 import { useExpenseData } from "../contexts/ExpenseContext";
